@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=Poppins:wght@400;700;800&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <main class="main">
+        <div class="main__card-display-div">
+            <div class="card-front">
+                <img class="card-front__decoration" src="../assets/card-logo.svg" alt="decoration">
+                <div class="grid-group">
+                    <p class="card-front__card-number">0000 0000 0000 0000</p>
+                    <p class="card-front__card-name">ANE APPLESEED</p>
+                    <p class="card-front__exp-date"><span class="card-front__exp-date-month">00</span>/<span class="card-front__exp-date-year">00</span></p>
+                </div>
+            </div>
+            <div class="card-back">
+                <p class="card-back__cvc">000</p>
+            </div>
+        </div>
+        <div class="main__form-div">
+            <form class="main-form" action="">
+                <div class="main-form__input">
+                    <label class="label-name" for="name">CARDHOLDER NAME</label>
+                    <input id="name" class="input-field" type="text" placeholder="e.g Jane Appleseed">
+                    <p class="error-mesage">error</p>
+                </div>
+                <div class="main-form__input">
+                    <label class="label-name" for="card-number">CARD NUMBER</label>
+                    <input id="card-number" class="input-field" type="number" placeholder="e.g 1234 5678 9123 0000">
+                    <p class="error-mesage">error</p>
+                </div>
+                <div class="main-form__input">
+                    <div class="grid-group">
+                        <label class="label-name" for="date-month">EXP. DATE (MM/YY)</label>
+                        <input id="date-month" class="input-field" type="number" placeholder="MM">
+                        <input id="date-year" class="input-field" type="number" placeholder="YY">
+                        <p class="error-mesage">error</p>
+                    </div>
+                    <div class="flex-group">
+                        <label class="label-name" for="cvc">CVC</label>
+                        <input id="cvc" class="input-field" type="text" placeholder="e.g 123">
+                        <p class="error-mesage">error</p>
+                    </div>
+                </div>
+                <input class="main-form__input sub-button" type="submit" value="Confirm">
+            </form>
+        </div>
+    </main>
+</body>
+<script src="js/main.js"></script>
+</html>

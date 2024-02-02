@@ -1,0 +1,18 @@
+@mixin flexCenter($direction, $aligne-value: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: $aligne-value;
+}
+
+@mixin backgroundCover($url) {
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin maxScreenSize($width) {
+    @media (max-width: $width){
+        @content;
+    }
+}
