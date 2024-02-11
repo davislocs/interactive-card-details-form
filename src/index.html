@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=Poppins:wght@400;700;800&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
 </head>
 <body>
     <main class="main">
@@ -15,42 +16,48 @@
             <div class="card-front">
                 <img class="card-front__decoration" src="../assets/card-logo.svg" alt="decoration">
                 <div class="grid-group">
-                    <p class="card-front__card-number">0000 0000 0000 0000</p>
-                    <p class="card-front__card-name">ANE APPLESEED</p>
-                    <p class="card-front__exp-date"><span class="card-front__exp-date-month">00</span>/<span class="card-front__exp-date-year">00</span></p>
+                    <p id="card-number" class="card-front__card-number">0000 0000 0000 0000</p>
+                    <p id="name" class="card-front__card-name">ANE APPLESEED</p>
+                    <p class="card-front__exp-date"><span id="exp-month" class="card-front__exp-date-month">00</span>/<span id="exp-year" class="card-front__exp-date-year">00</span></p>
                 </div>
             </div>
             <div class="card-back">
-                <p class="card-back__cvc">000</p>
+                <p id="cvc" class="card-back__cvc">000</p>
             </div>
         </div>
         <div class="main__form-div">
-            <form class="main-form" action="">
+            <form id="main-form" class="main-form" action="">
                 <div class="main-form__input">
-                    <label class="label-name" for="name">CARDHOLDER NAME</label>
-                    <input id="name" class="input-field" type="text" placeholder="e.g Jane Appleseed">
-                    <p class="error-mesage">error</p>
+                    <label class="label-name" for="name-input">CARDHOLDER NAME</label>
+                    <input id="name-input" class="input-field" type="text" required placeholder="e.g Jane Appleseed">
+                    <p class="error-mesage hidden">error</p>
                 </div>
                 <div class="main-form__input">
-                    <label class="label-name" for="card-number">CARD NUMBER</label>
-                    <input id="card-number" class="input-field" type="number" placeholder="e.g 1234 5678 9123 0000">
-                    <p class="error-mesage">error</p>
+                    <label class="label-name" for="card-number-input">CARD NUMBER</label>
+                    <input id="card-number-input" class="input-field" required placeholder="e.g 1234 5678 9123 0000">
+                    <p class="error-mesage hidden">error</p>
                 </div>
                 <div class="main-form__input">
                     <div class="grid-group">
-                        <label class="label-name" for="date-month">EXP. DATE (MM/YY)</label>
-                        <input id="date-month" class="input-field" type="number" placeholder="MM">
-                        <input id="date-year" class="input-field" type="number" placeholder="YY">
-                        <p class="error-mesage">error</p>
+                        <label class="label-name" for="exp-month-input">EXP. DATE (MM/YY)</label>
+                        <input id="exp-month-input" class="input-field" required placeholder="MM">
+                        <input id="exp-year-input" class="input-field" required placeholder="YY">
+                        <p class="error-mesage hidden">error</p>
                     </div>
                     <div class="flex-group">
-                        <label class="label-name" for="cvc">CVC</label>
-                        <input id="cvc" class="input-field" type="text" placeholder="e.g 123">
-                        <p class="error-mesage">error</p>
+                        <label class="label-name" for="cvc-input">CVC</label>
+                        <input id="cvc-input" class="input-field" required placeholder="e.g 123">
+                        <p class="error-mesage hidden">error</p>
                     </div>
                 </div>
-                <input class="main-form__input sub-button" type="submit" value="Confirm">
+                <input id="submit-btn" class="main-form__input sub-button btn" type="button" value="Confirm">
             </form>
+            <div id="submit-accept-div" class="submit-div hidden">
+                <img class="submit-compleate-icon" src="../assets/icon-complete.svg" alt="compleate-icon">
+                <h3>Thank you!</h3>
+                <p>We’ve added your card details</p>
+                <button id="back-btn" class="btn" >Continue</button>
+            </div>
         </div>
     </main>
 </body>

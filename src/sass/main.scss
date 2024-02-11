@@ -1,7 +1,6 @@
 @use 'resets' as *;
 @use 'mixins' as *;
 @use 'variables' as *;
-// @use 'fonts' as *;
 
 .main {
     width: 100%;
@@ -31,13 +30,23 @@
 
     &__form-div {
         width: 66.5%;
-        @include flexCenter(column, flex-end);
-        padding-right: min(22.7rem, 15.8vw);
+        @include flexCenter(column, center);
+
+        @include maxScreenSize(1650px) {
+            width: 66.5%;
+            @include flexCenter(column, flex-end);
+            padding-right: min(22.7rem, 15.8vw);
+        }
+
+        @include maxScreenSize($brakepoint-tablet) {
+            width: 100%;
+            align-items: center;
+            padding-left: 20rem;
+            padding-top: 15rem;
+        }
 
         @include maxScreenSize($brakepoint-mobile) {
-            width: 100%;
             padding: 9.1rem 2.4rem 4.5rem 2.4rem;
-            align-items: center;
         }
     }
 }
@@ -68,21 +77,31 @@
     text-transform: uppercase;
 
     position: relative;
-    // left: min(12.8rem, 9vw);
-    // left: 16.5rem;
     left: 34%;
 
-    @include maxScreenSize($brakepoint-mobile) {
+    @include maxScreenSize(1300px) {
+        left: 21%;
+    }
+
+    @include maxScreenSize($brakepoint-tablet) {
         position: absolute;
         width: 28.6rem;
         height: 15.7rem;
         top: 12.64rem;
-        // left: 1.7rem;
-        // left: 5%;
         left: 5vw;
         z-index: 2;
         padding: 2.8rem 3.2rem;
         padding: 1.76rem 2.06rem 2.06rem 1.9rem;
+    }
+
+    @include maxScreenSize($brakepoint-mobile) {
+        top: 12.64rem;
+        left: 5vw;
+    }
+
+    @include maxScreenSize(374px) {
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     &__decoration {
@@ -105,7 +124,7 @@
         font-size: map-get($fs, fs-m);
         letter-spacing: .2rem;
 
-        @include maxScreenSize($brakepoint-mobile) {
+        @include maxScreenSize($brakepoint-tablet) {
             font-size: map-get($fs, fs-xs);
         }
     }
@@ -119,27 +138,38 @@
     color: map-get($clr, primary);
 
     position: relative;
-    // left: min(22.2rem, 15.4vw);
-    // left: 25.5rem;
     left: 53%;
 
-    @include maxScreenSize($brakepoint-mobile) {
+    @include maxScreenSize(1300px) {
+        left: 40%;
+    }
+
+    @include maxScreenSize($brakepoint-tablet) {
         position: absolute;
         left: 0;
         width: 28.6rem;
         height: 15.7rem;
         top: 3.2rem;
-        // left: 7.3rem;
-        // left: 20%;
         left: 20vw;
+    }
+
+    @include maxScreenSize($brakepoint-mobile) {
+        top: 3.2rem;
+        left: 20vw;
+    }
+
+    @include maxScreenSize(374px) {
+        left: 50%;
+        transform: translateX(-50%);
     }
     
     &__cvc {
         font-size: map-get($fs, fs-m);
         letter-spacing: .2rem;
-        padding: 11.1rem 35.8rem;
+        padding-top: 11.1rem;
+        padding-left: 35.8rem;
 
-        @include maxScreenSize($brakepoint-mobile) {
+        @include maxScreenSize($brakepoint-tablet) {
             font-size: map-get($fs, fs-xs);
             letter-spacing: .1286rem;
             padding: 7.364rem 3.7rem;
@@ -154,9 +184,12 @@
     width: min(38.1rem, 27vw);
 
     @include maxScreenSize($brakepoint-mobile) {
+        gap: 2rem;
+    }
+
+    @include maxScreenSize($brakepoint-tablet) {
         max-width: 40rem;
         width: 100%;
-        gap: 2rem;
     }
 
     &__input:nth-child(1), &__input:nth-child(2) {
@@ -168,12 +201,12 @@
 
     &__input:nth-child(3) {
         display: flex;
+        align-items: baseline;
         gap: 2rem;
         width: 100%;
     }
 
     &__input:nth-child(3) .grid-group {
-        // width: 50%;
         max-width: 20rem;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -182,7 +215,6 @@
     }
 
     &__input:nth-child(3) .grid-group input{
-        //8
         min-width: 8rem;
         width: 100%;
 
@@ -203,11 +235,35 @@
     }
 
     &__input:nth-child(3) .flex-group input{
-        width: 100%;//19.1rem
+        width: 100%;
     }
 }
 
-.sub-button {
+.submit-div {
+    @include flexCenter(column, center);
+    width: 100%;
+    max-width: 38.1rem;
+    gap: 2.5rem;
+
+    h3 {
+        font-size: map-get($fs, fs-xl);
+        color: map-get($clr, secondary);
+        letter-spacing: .2rem;
+        text-transform: uppercase;
+    }
+
+    p{
+        font-size: map-get($fs, fs-m);
+        color: map-get($clr, neutral-500);
+    }
+
+    .btn {
+        margin-top: 3rem;
+    }
+
+}
+
+.btn {
     width: 100%;
     min-height: 5.3rem;
     border-radius: .8rem;
@@ -215,13 +271,9 @@
     color: map-get($clr, primary);
     padding: 1.5rem 0;
     font-size: map-get($fs, fs-ml);
-
-    @include maxScreenSize($brakepoint-mobile) {
-        // margin-top: 2.6rem;
-    }
 }
 
-.sub-button:hover {
+.btn:hover {
     background-color: hsl(278, 68%, 11%, 0.5);
     cursor: pointer;
     color: map-get($clr, secondary);
